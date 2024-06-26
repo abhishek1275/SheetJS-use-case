@@ -1,0 +1,137 @@
+<mvc:View controllerName="ui.demoapp.demoapp.controller.MainView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+       <Panel id="pl1" >
+                  <content>
+                <l:VerticalLayout id="v5" class="sapUiContentPadding">
+                </l:VerticalLayout>
+                <l:VerticalLayout id="v10" class="sapUiContentPadding">
+                </l:VerticalLayout>
+                <l:VerticalLayout id="v12" class="sapUiContentPadding">
+                </l:VerticalLayout>
+                <l:VerticalLayout id="v13" class="sapUiContentPadding">
+                </l:VerticalLayout>
+                <l:VerticalLayout id="v18" class="sapUiContentPadding">
+                </l:VerticalLayout>
+                <l:VerticalLayout id="v7" class="sapUiContentPadding">
+                </l:VerticalLayout>
+                <l:VerticalLayout id="v8" class="sapUiContentPadding">
+                </l:VerticalLayout>
+                <l:VerticalLayout id="v15" class="sapUiContentPadding">
+                </l:VerticalLayout>
+                <l:VerticalLayout id="v16" class="sapUiContentPadding">
+                </l:VerticalLayout>
+                <l:VerticalLayout id="v17" class="sapUiContentPadding">
+                </l:VerticalLayout>
+                <l:HorizontalLayout id="hl1" class="sapUiContentPadding" >
+				<l:VerticalLayout id="v1" class="sapUiContentPadding">
+                
+                <FlexBox id="fl1"
+				height="40px"
+				alignItems="Start"
+				justifyContent="Start">
+				<Label id="l1" text="Template:" class="sapUiTinyMarginEnd" ></Label>
+                <Button id="b1" text="Download Template" type="Emphasized"  icon="sap-icon://download" press="onExport" class="sapUiSmallMarginEnd" />
+                
+			</FlexBox>
+			
+			<FlexBox id="fl2"
+				height="20px"
+				alignItems="Start"
+				justifyContent="Start">
+                <Label id="l2" text="Upload:" class="sapUiTinyMarginEnd" ></Label>
+                <u:FileUploader
+                    id="fileUploader"
+                    name="myFileUpload"
+                    uploadUrl="upload/"
+                    tooltip="Upload your file to the local server"
+                    icon="sap-icon://upload" iconFirst="true" sameFilenameAllowed="true" iconOnly="false"  fileType="XLSX,xlsx"
+                    change="onUpload" />
+                    <!-- <Button id="b2"
+                    text="Upload File"
+                    press="handleUploadPress"  class="sapUiTinyMarginBeginEnd"/> -->
+			</FlexBox>
+                </l:VerticalLayout>
+            </l:HorizontalLayout>
+        </content>
+        </Panel>
+
+        <Panel id="p3"></Panel>
+
+        <Panel id="p2"  >
+        <content>
+        <OverflowToolbar id="of1" style="Clear">
+        <Title id="title" text="User List"/>
+                <ToolbarSpacer id="tb1"/>
+                <SearchField id="searchField" width="20%" placeholder="Search" search=".onSearch" />
+                     <!-- <Button id="createButton" icon="sap-icon://add" tooltip="Create" visible="true" type="Emphasized" press="onOpenAddDialog">
+                         <layoutData>
+                           <OverflowToolbarLayoutData id="ot1" priority="NeverOverflow" />
+                         </layoutData>
+                    </Button> -->
+                     <Button id="deleteButton" icon="sap-icon://delete" tooltip="Delete" visible="false" type="Emphasized" press="onDelete">
+                        <layoutData>
+                          <OverflowToolbarLayoutData id="ot2" priority="NeverOverflow" />
+                        </layoutData>
+                    </Button>
+
+                    <Button id="saveButton" text="Save" type="Emphasized" visible="false" enabled="true"  press="onSave" />
+                    <Button id="editModeButton" visible="true" icon="sap-icon://edit" tooltip="Edit" type="Emphasized" press="onEditMode">
+                        <layoutData>
+                            <OverflowToolbarLayoutData id="ot3" priority="NeverOverflow" />
+                        </layoutData>
+                    </Button>
+             </OverflowToolbar>
+
+         <Table id="idProductsTable"
+					 mode="SingleSelectLeft"
+					 items="{userdetailsli>/results}"
+                     selectionChange="onSelect"
+                     ariaLabelledBy="title">
+            
+
+				<columns>
+					<Column id="cl1" width="6em">
+						<Text id="txt1" text="User ID"/>
+					</Column>
+					<Column id="cl2" width="6em">
+						<Text id="txt2" text="Last Name"/>
+					</Column>
+					<Column id="cl4" width="6em">
+						<Text id="txt3" text="First Name"/>
+					</Column>
+					<Column id="cl5" width="6em">
+						<Text id="txt4" text="Email Address"/>
+					</Column>
+                    <Column id="cl6" width="6em">
+						<Text id="txt5" text="Mobile Number"/>
+					</Column>
+                    <Column id="cl7" width="6em">
+						<Text id="txt6" text="User type"/>
+					</Column>
+                    <Column id="cl8" width="6em">
+						<Text id="txt7" text="Password"/>
+					</Column>
+                    <Column id="cl9" width="6em">
+						<Text id="txt8" text="User Group"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem id="cli1">
+						<cells>
+							<!-- Adding text fields <Text id="tx3" text="{USerdetailsli>UserID}"/> -->
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>   
+
+        </content>
+        </Panel>
+
+
+
+    </Page>
+</mvc:View>
